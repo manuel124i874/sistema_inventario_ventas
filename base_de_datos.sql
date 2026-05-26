@@ -81,16 +81,6 @@ INSERT INTO productos (nombre_producto, categoria_id, stock, precio) VALUES
 ('Mouse Inalámbrico Logitech', 2, 25, 12.00);
 
 
--- =============================================================================
--- INSTITUTO NACIONAL DE CIUDAD BARRIOS
--- Bachillerato en Desarrollo de Software
--- Estudiante: [Tu Nombre Aquí] | Docente: Allan Romero
--- =============================================================================
-
--- REPORTES RELACIONALES AVANZADOS (Guía 11)
-
--- 1. Vista completa del inventario con categorías legibles para administración:
--- Reto 1: Construcción de tabla relacional con INNER JOIN
 SELECT 
     p.id AS 'ID Producto', 
     p.nombre_producto AS 'Producto', 
@@ -101,8 +91,6 @@ FROM productos p
 INNER JOIN categorias c ON p.categoria_id = c.id;
 
 
--- 2. Vista filtrada exclusivamente para el departamento de 'Accesorios':
--- Reto 2: Filtrado estructurado con la cláusula WHERE
 SELECT 
     p.id AS 'ID Producto', 
     p.nombre_producto AS 'Producto', 
