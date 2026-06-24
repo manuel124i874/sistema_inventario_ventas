@@ -43,6 +43,11 @@ th, td { padding: 12px; text-align: left; border-bottom: 1px solid #e2e8f0; }
 th { background-color: #f1f5f9; color: #334155; font-weight: bold; }
 tr:hover { background-color: #f8fafc; }
 .stock-bajo { color: #dc2626; font-weight: bold; }
+.btn-eliminar {
+background-color: #ef4444; color: white; padding: 6px 12px;
+text-decoration: none; border-radius: 4px; font-size: 13px; font-weight: bold;
+}
+.btn-eliminar:hover { background-color: #b91c1c; }
 </style>
 </head>
 <body>
@@ -68,6 +73,7 @@ text-decoration: none; border-radius: 5px;">+ Nuevo Producto</a>
 <th>Categoría</th>
 <th>Stock</th>
 <th>Precio Unitario</th>
+<th>Acciones</th> <!-- ¡NUEVA COLUMNA! -->
 </tr>
 </thead>
 <tbody>
@@ -76,6 +82,19 @@ text-decoration: none; border-radius: 5px;">+ Nuevo Producto</a>
 // Si hay resultados en la base de datos, iteramos fila por fila
 if ($resultado->num_rows > 0) {
 while($fila = $resultado->fetch_assoc()) {
+<!-- ... columnas existentes ... -->
+<td> $<?php echo number_format($fila['precio'], 2); ?> </td>
+<!-- ¡NUEVA CELDA CON BOTÓN DINÁMICO! -->
+<td>
+<a href="eliminar_producto.php?id=<?php echo $fila['id']; ?>"
+class="btn-eliminar"
+onclick="return confirm('¿Estás absolutamente seguro de eliminar el producto: <?php
+echo $fila['nombre_producto']; ?>?');">
+🗑️ Eliminar
+</a>
+</td>
+</tr>
+<?php } // Fin del bucle while ?>
 
 // Lógica de negocio: Si el stock es menor a 10, le ponemos una clase roja
 $claseStock = ($fila['stock'] < 10) ? 'stock-bajo' : '';
