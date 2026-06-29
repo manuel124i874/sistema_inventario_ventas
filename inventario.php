@@ -91,6 +91,17 @@ class="btn-eliminar"
 onclick="return confirm('¿Estás absolutamente seguro de eliminar el producto: <?php
 echo $fila['nombre_producto']; ?>?');">
 🗑️ Eliminar
+
+<!-- ... dentro del ciclo while de inventario.php ... -->
+<td>
+<!-- NUEVO BOTÓN DE EDITAR -->
+<a href="editar_producto.php?id=<?php echo $fila['id']; ?>" class="btn-editar">✏️
+Editar</a>
+
+<!-- Botón de eliminar (ya lo tenías) -->
+<a href="eliminar_producto.php?id=<?php echo $fila['id']; ?>" class="btn-eliminar"
+onclick="return confirm('¿Seguro?');">🗑️Eliminar</a>
+</td>
 </a>
 </td>
 </tr>
