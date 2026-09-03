@@ -109,6 +109,8 @@ $_SESSION['rol']; ?>)</span>
 <a href="inventario.php" class="modulo">📦Ir al Catálogo de Inventario</a>
 <!-- Este enlace lo programaremos en el siguiente bloque del año -->
 <a href="#" class="modulo" style="background:#64748b;">🛒Punto de Venta
+    HTML
+<a href="historial_compras.php" class="modulo">Historial de Compras</a>
 (Próximamente)</a>
 </div>
 </body>
